@@ -1,0 +1,26 @@
+{
+  "name": "rappler-frameworks",
+  "version": "0.0.1",
+  "description": "na",
+  "main": "index.js",
+  "dependencies": {
+    "@zeit/next-stylus": "^1.0.1",
+    "autoprefixer": "^9.5.1",
+    "next": "^8.1.0",
+    "postcss-css-variables": "^0.12.0",
+    "poststylus": "^1.0.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "rupture": "^0.7.1",
+    "stylus": "^0.54.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "export": "npm run build && next export -o static-export",
+    "start": "next start"
+  },
+  "author": "DVXD.co",
+  "license": "MIT"
+}

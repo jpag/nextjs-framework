@@ -1,0 +1,20 @@
+$h1-font-size = 2rem
+$h1-font-size-tablet = 3rem
+$h1-font-size-desktop = 4rem
+
+body {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 1.6rem;
+}
+
+h1 {
+	font-size $h1-font-size
+  	
+  	+above($breakpoint-mobile) {
+  		font-size $h1-font-size-tablet
+  	}
+  	
+  	+above($breakpoint-tablet) {
+  		font-size $h1-font-size-desktop
+  	}
+}

@@ -1,0 +1,41 @@
+@import '../base/breakpoints';
+
+.page-title {
+	span {
+		display: none;
+		margin: 0px 20px;
+		font-size: 1.4rem;
+		vertical-align: middle;
+
+		&.breakpoint-mobile {
+			+below($breakpoint-mobile) {
+				display: inline-block;
+			}	
+		}
+		
+		&.breakpoint-tablet {
+			+between($breakpoint-mobile, $breakpoint-tablet) {
+				display: inline-block;	
+			}
+		}
+		&.breakpoint-desktop {
+			+above($breakpoint-tablet) {
+				display: inline-block;	
+			}
+		}
+	}
+}
+
+.row {
+	&.demo {
+		grid-auto-rows: 100px;
+		padding-bottom: 10px;
+		border-bottom: 1px solid #eee;
+		.col {
+			background: #eee;
+			&.col-offset {
+				background: #f9f9f9;
+			}
+		}
+	}
+}
