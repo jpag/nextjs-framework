@@ -3,8 +3,11 @@
 // https://medium.com/codyhouse/create-your-design-system-part-2-grid-layout-aa961d59b8d6
 // 
 
-$gap-horizontal = 10px;
-$gap-vertical = $gap-horizontal;
+$gap-horizontal-mobile = 16px;
+$gap-horizontal-tablet = 32px;
+$gap-horizontal-desktop = 32px;
+
+$gap-vertical = 10px;
 
 
 gridbase() {
@@ -12,8 +15,16 @@ gridbase() {
         display: grid;
         // min row height.
         grid-auto-rows: auto;
-        grid-column-gap: $gap-horizontal;
         grid-row-gap: $gap-vertical;
+        grid-column-gap: $gap-horizontal-mobile;
+        
+        +above($breakpoint-mobile) {
+            grid-column-gap: $gap-horizontal-tablet;  
+        }
+        
+        +above($breakpoint-tablet) {
+            grid-column-gap: $gap-horizontal-desktop;
+        }
     }
 }
 

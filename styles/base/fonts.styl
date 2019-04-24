@@ -1,20 +1,48 @@
-$h1-font-size = 2rem
-$h1-font-size-tablet = 3rem
-$h1-font-size-desktop = 4rem
+generateFontSizesPerBreakpoint(mobile-px, tablet-px, desktop-px) {
+  font-size (mobile-px / 16)rem;
+    
+    +above($breakpoint-mobile) {
+      font-size (tablet-px / 16)rem;
+    }
+    
+    +above($breakpoint-tablet) {
+      font-size (desktop-px / 16)rem;
+    }
+}
+
 
 body {
 	font-family: Helvetica, Arial, sans-serif;
-	font-size: 1.6rem;
+	font-size: 1rem;
 }
 
 h1 {
-	font-size $h1-font-size
-  	
-  	+above($breakpoint-mobile) {
-  		font-size $h1-font-size-tablet
-  	}
-  	
-  	+above($breakpoint-tablet) {
-  		font-size $h1-font-size-desktop
-  	}
+	generateFontSizesPerBreakpoint(64, 72, 96)
+}
+
+h2 {
+  generateFontSizesPerBreakpoint(56, 64, 72)
+}
+  
+h3 {
+  generateFontSizesPerBreakpoint(48, 56, 64)
+}
+
+h4 {
+  generateFontSizesPerBreakpoint(36, 36, 48)
+}
+
+h5 {
+  generateFontSizesPerBreakpoint(24, 24, 36)
+  text-transform: uppercase;
+}
+  
+h6 {
+  generateFontSizesPerBreakpoint(18, 24, 24)
+  text-transform: uppercase;
+}
+
+h6 {
+  generateFontSizesPerBreakpoint(16, 16, 18)
+  text-transform: uppercase;
 }
