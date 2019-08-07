@@ -1,59 +1,21 @@
-// 
-// CSS Grid approach as taken from here:
-// https://medium.com/codyhouse/create-your-design-system-part-2-grid-layout-aa961d59b8d6
-// 
+.row {
+  max-width: $maxwidth;
+    margin: auto;
+    padding: $gap-vertical 0px 0px 0px;
+    
+    // using css display grid 
+  gridbase()
+  gridAuto(320px);
+  
+  // columns <= 4 take up 1 col on mobile.
+  // columns > 4 take 2 on mobile
+  gridLayout(2, (1 1 1 1 2 2 2 2 2 2 2 2), 1 );
+  
+  // all columns are treated the same.  
+  // gridLayout(1, (1 1 1 1 1 1 1 1 1 1 1 1), 1 );
 
-$gap-horizontal-mobile = 16px;
-$gap-horizontal-tablet = 32px;
-$gap-horizontal-desktop = 32px;
+  +above($breakpoint-mobile) {
+    gridLayout(12, (1 2 3 4 5 6 7 8 9 10 11 12), 1 );
+  }
 
-$gap-vertical = 0px;
-
-
-gridbase() {
-    @supports(grid-area: auto) {
-        display: grid;
-        // min row height.
-        grid-auto-rows: auto;
-        grid-row-gap: $gap-vertical;
-        grid-column-gap: $gap-horizontal-mobile;
-        
-        +above($breakpoint-mobile) {
-            grid-column-gap: $gap-horizontal-tablet;  
-        }
-        
-        +above($breakpoint-tablet) {
-            grid-column-gap: $gap-horizontal-desktop;
-        }
-    }
-}
-
-gridAuto($min-width) {
-      @supports(grid-area: auto) {
-        grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
-      }
-}
-
-gridLayout(grid-columns, cols, row) {
-    @supports(grid-area: auto) {
-        grid-template-columns: repeat(grid-columns, 1fr);
-
-        i = 1
-        for col in cols {
-            .len-{i} {
-                grid-column-end: span col;
-                // @if row {
-                grid-row-end: span row;
-                // }
-            }
-            i = i + 1
-        }
-    }
-}
-
-.col.col-offset {
-    display: none;
-    +above($breakpoint-mobile) {
-        display: inline-block;
-    }
 }

@@ -1,0 +1,52 @@
+// 
+// CSS Grid approach as taken from here:
+// https://medium.com/codyhouse/create-your-design-system-part-2-grid-layout-aa961d59b8d6
+// 
+
+gridbase() {
+    @supports(grid-area: auto) {
+        display: grid;
+        // min row height.
+        grid-auto-rows: auto;
+        grid-row-gap: $gap-vertical;
+        grid-column-gap: $gap-horizontal-mobile;
+        
+        +above($breakpoint-mobile) {
+            grid-column-gap: $gap-horizontal-tablet;  
+        }
+        
+        +above($breakpoint-tablet) {
+            grid-column-gap: $gap-horizontal-desktop;
+        }
+    }
+}
+
+gridAuto($min-width) {
+      @supports(grid-area: auto) {
+        grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
+      }
+}
+
+gridLayout(grid-columns, cols, row) {
+    @supports(grid-area: auto) {
+        grid-template-columns: repeat(grid-columns, 1fr);
+
+        i = 1
+        for col in cols {
+            .len-{i} {
+                grid-column-end: span col;
+                // @if row {
+                grid-row-end: span row;
+                // }
+            }
+            i = i + 1
+        }
+    }
+}
+
+.col.col-offset {
+    display: none;
+    +above($breakpoint-mobile) {
+        display: inline-block;
+    }
+}

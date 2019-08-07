@@ -6,37 +6,21 @@ function loopThroughColors() {
 
 	var colorList = [
 		{
-			color: 'color-primary-orange',
+			color: 'color-primary-black',
 			col: 2
 		},
 		{
-			color: 'color-primary-blue',
+			color: 'color-primary-gray',
 			col: 2
 		},
 		{
 			color: 'color-primary-white',
 			col: 2
 		},
-		{
-			color: 'color-secondary-blue',
-			col: 1
-		},
-		{
-			color: 'color-secondary-purple',
-			col: 1
-		},
-		{
-			color: 'color-secondary-pink',
-			col: 1
-		},
-		{
-			color: 'color-secondary-green',
-			col: 1
-		},
-		{
-			color: 'color-secondary-green-light',
-			col: 1
-		},
+		// {
+		// 	color: 'color-secondary-blue',
+		// 	col: 1
+		// },
 	]
 
 	for (let c = 0; c < colorList.length; c++) {
@@ -48,8 +32,7 @@ function loopThroughColors() {
 }
 
 function Styleguide() {
-  return <div>
-	<article>
+  return <article className="page-styleguide">
 		<div className='row'>
 			<div className="col len-6">
 
@@ -73,7 +56,7 @@ function Styleguide() {
 		</div>
 
 		<div className='row'>
-			<div className="col len-12">
+			<div className="col len-8">
 				
 				<h1>This is a Dark Headline 1</h1>
 				<h2>This is a Dark Headline 2</h2>
@@ -81,15 +64,13 @@ function Styleguide() {
 				<h4>This is a Dark Headline 4</h4>
 				<h5>This is a Dark Headline 5</h5>
 				<h6>This is a Dark Headline 6</h6>
-				<h7>This is a Dark Headline 7</h7>
-
-				<p>article paragraph block</p>
+				
+				<p>Article paragraph block of pig latin. Bite the neighbor's bratty kid get my claw stuck in the dog's ear yet try to hold own back foot to clean it but foot reflexively kicks you in face, go into a rage and bite own foot, hard make it to the carpet before i vomit mmmmmm have a lot of grump in yourself because you can't forget to be grumpy and not be like king grumpy cat. </p>
+				<p>Article paragraph block of pig latin. Bite the neighbor's bratty kid get my claw stuck in the dog's ear yet try to hold own back foot to clean it but foot reflexively kicks you in face, go into a rage and bite own foot, hard make it to the carpet before i vomit mmmmmm have a lot of grump in yourself because you can't forget to be grumpy and not be like king grumpy cat. </p>
 
 			</div>
 		</div>
-		
 	</article>
-  </div>
 }
 
 export default Styleguide

@@ -1,27 +1,12 @@
-@import './base/animations';
-@import './base/breakpoints';
+@import './vars_mixins';
+
 @import './base/colors';
 @import './base/fonts';
 @import './base/grid';
-@import './zindex';
 
-.row {
-	max-width: 1400px;
-  	margin: auto;
-  	padding: $gap-vertical 0px 0px 0px;
-  	
-  	// css display grid 
-	gridbase()
-	gridAuto(320px);
-	
-	// columns <= 4 take up 1 col on mobile.
-	// columns > 4 take 2 on mobile
-	gridLayout(2, (1 1 1 1 2 2 2 2 2 2 2 2), 1 );
-	
-	// all columns are treated the same.	
-	// gridLayout(1, (1 1 1 1 1 1 1 1 1 1 1 1), 1 );
-
-	+above($breakpoint-mobile) {
-		gridLayout(12, (1 2 3 4 5 6 7 8 9 10 11 12), 1 );
-	}
+body, * {
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
 }
