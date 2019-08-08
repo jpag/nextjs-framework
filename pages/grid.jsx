@@ -4,9 +4,13 @@ import "../styles/pages/styleguide.styl";
 
 function Styleguide() {
   return <article className="page-grid">
-	<h1 className='page-title'>
-		Grid
-	</h1>
+  	<div className='row'>
+		<div className="col len-12">
+			<h1 className='page-title'>
+				Grid
+			</h1>
+		</div>
+	</div>
 	<div className='row demo row-solo'>
 		<div className="col len-12">
 			<span className="breakpoint-mobile">Mobile</span>
@@ -56,9 +60,7 @@ function Styleguide() {
 	</div>
 
 	<div className='row demo'>
-		<div className="col len-2 col-offset"></div>
-		<div className="col len-8"></div>
-		<div className="col len-2 col-offset"></div>
+		<div className="col len-8 offset-2"></div>
 	</div>
 
 	<div className='row demo row-headline'>
@@ -68,9 +70,7 @@ function Styleguide() {
 	</div>
 
 	<div className='row demo'>
-		<div className="col len-3 col-offset"></div>
-		<div className="col len-6"></div>
-		<div className="col len-3 col-offset"></div>
+		<div className="col len-6 offset-3"></div>
 	</div>
 
 	<div className='row demo row-headline'>
