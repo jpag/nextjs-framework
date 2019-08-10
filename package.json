@@ -1,29 +1,37 @@
 {
-  "name": "rappler-frameworks",
+  "name": "jpg-frameworks",
   "version": "0.0.1",
   "description": "na",
   "main": "index.js",
   "dependencies": {
+    "@next/bundle-analyzer": "^9.0.3",
     "@zeit/next-stylus": "^1.0.1",
-    "autoprefixer": "^9.5.1",
+    "autoprefixer": "^9.6.1",
     "http-server": "^0.11.1",
     "isomorphic-unfetch": "^3.0.0",
     "next": "^8.1.0",
+    "next-page-transitions": "^1.0.0-beta.2",
     "postcss-css-variables": "^0.12.0",
     "poststylus": "^1.0.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-visibility-sensor": "^5.1.1",
     "rupture": "^0.7.1",
     "stylus": "^0.54.5"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "next-compose": "0.0.2"
+  },
   "scripts": {
     "dev": "next",
     "build": "next build",
     "export": "npm run build && next export -o static-export",
     "start": "next start",
-    "test-export": "http-server ./static-export"
+    "test-export": "http-server ./static-export",
+    "analyze": "ANALYZE=true next build",
+    "analyze:server": "BUNDLE_ANALYZE=server next build",
+    "analyze:browser": "BUNDLE_ANALYZE=browser next build"
   },
-  "author": "DVXD.co",
+  "author": "JpGary",
   "license": "MIT"
 }

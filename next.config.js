@@ -1,4 +1,8 @@
 // next.config.js
+const compose = require('next-compose');
+
+// Environment
+const isProd = process.env.NODE_ENV === 'production'
 
 // Stylus mixins, utilities, components, and gradient image generation.
 // const nib = require('nib')
@@ -11,44 +15,57 @@ const withStylus = require('@zeit/next-stylus')
 const poststylus = require('poststylus')
 const autoprefixer = require('autoprefixer')
 
-const ProjectJSON = require('./data/projects.json')
-const isProd = process.env.NODE_ENV === 'production'
+// Bundle analyzer for reviewing what your build files look like.
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
 
-module.exports = withStylus({
+// Defines all project paths.
+const ProjectJSON = require('./data/projects.json')
+
+// helper function
+const slugify = require('./helpers/slugify');
+
+
+const stylusConfig = {
   stylusLoaderOptions: {
     use: [
       // nib(),
       rupture(),
       poststylus([
-        autoprefixer({ 
-        	
-       	}),
+        autoprefixer({}),
         require('postcss-css-variables'),
       ]),
   ]},
-  // set it up to run in a folder: 
-  assetPrefix: isProd ? '' : '',
-  exportPathMap: async function(
-    defaultPathMap,
-    { dev, dir, outDir, distDir, buildId }
-  ) {
-    var paths = defaultPathMap;
+}
 
-    const data = ProjectJSON;
-    console.log( data );
+module.exports = compose([
+  [withBundleAnalyzer, {}],
+  [withStylus, stylusConfig],
+  {
+    // set it up to run in a folder: 
+    assetPrefix: isProd ? '' : '',
+    
+    exportPathMap: async function(
+      defaultPathMap,
+      { dev, dir, outDir, distDir, buildId }
+    ) {
+      var paths = defaultPathMap;
 
-    const projects = data;
+      const projectData = ProjectJSON;
+      
+      projectData.forEach(project => {
+        paths[`/project/${slugify(project.title)}`] = { page: '/project/[title]', query: project };
+      });
 
-    projects.forEach(project => {
-      paths[`/project/${project.title}`] = { page: '/project/[title]', query: project };
-    });
+      console.log(' defaultPathMap ', paths);
 
-    if (dev) {
+      if (dev) {
+        // return paths;
+      }
+      
+      // This will copy robots.txt from your project root into the out directory
+      // await copyFile(join(dir, 'robots.txt'), join(outDir, 'robots.txt'));
       return paths;
-    }
-    console.log(' defaultPathMap ', paths);
-    // This will copy robots.txt from your project root into the out directory
-    // await copyFile(join(dir, 'robots.txt'), join(outDir, 'robots.txt'));
-    return paths;
-  }
-})
+    },
+  }]);

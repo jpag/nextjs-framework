@@ -1,7 +1,22 @@
 [
 	{
-		"title": "jpmorgan",
-		"description": "ipsm lore jpm jpm"
+		"title": "Demo Title",
+		"summary": "Short summary",
+		"description": "ipsm lore jpm jpm",
+		"media" : {
+			"featured": "",
+			"list" : [
+				"",
+				""
+			],
+			"video": ""
+		},
+		"credits": {
+
+		},
+		"date": {
+			"year": 2000
+		}
 	},{
 		"title": "chase",
 		"description": "CHAse chas echase"

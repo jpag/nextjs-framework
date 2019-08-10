@@ -1,3 +1,12 @@
+## Features
+- Stylus with CSS Grid
+- Styleguide
+- Page Transitions
+- Lazy Load Components / Images
+- Static Export with pre-rendered content. SEO
+- Accessibility Features
+- JSON "CMS"
+
 ## Nextjs
 This is using NextJS. To get running
 ```
@@ -34,6 +43,14 @@ Current pages:
 | - /grid
 ```
 
+This configuration also demonstrates how to use a .JSON folder to dynamically render out paths using a specific "page" template.
+```
+| -- /projects/[slugify(title)]
+```
+
+### Data
+All data is stored in the `./data` folder. However there is no reason why this could not be converted to "live" data using async/fetch operations. This will capture a snapshot of the data at time of build.
+
 ### CSS
 We are using `Style` and `@zeit/next-stylus` to configure styling. We can thus import and pass around variables and specific shared style sheets which can be expanded on all Styles are stored in the `styles` directory.
 
@@ -43,7 +60,6 @@ We are using `Style` and `@zeit/next-stylus` to configure styling. We can thus i
 - AutoPrefixer
 
 Review the `next.config.js` with further details.
-
 
 ### Static file serving (e.g.: images)
 Create a folder called static in your project root directory. From your code you can then reference those files with /static/ URLs:

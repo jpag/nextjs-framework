@@ -14,8 +14,7 @@ class HomePage extends React.Component {
 		return (
 			<article>
 				<Head>
-		          <title>Home Page</title>
-		          <meta name="description" content='description' />
+		          
 		        </Head>
 
 		        <div className="row">

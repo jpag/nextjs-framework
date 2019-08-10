@@ -26,7 +26,7 @@ class ProjectPage extends React.Component {
         </Head>
         <div className="row">
           <div className="col len-4 offset-1">
-            <h2>Project dump: </h2>
+            <h4>----</h4>
             <h4>{query.title}</h4>
             <p>{query.description}</p>
           </div>
