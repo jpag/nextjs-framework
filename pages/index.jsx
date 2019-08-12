@@ -23,7 +23,7 @@ class HomePage extends React.Component {
 		            <ul>
 		            	<li><a href="/grid">Grid</a></li>
 		            	<li><a href="/styleguide">StyleGuide</a></li>
-		            	<li><a href="/project/jpmorgan">'Dynamic' Project Item from .json list</a></li>
+		            	<li><a href="/project/demo-title">'Dynamic' Project Item from .json list</a></li>
 		            </ul>
 
 		          </div>

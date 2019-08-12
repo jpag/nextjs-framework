@@ -1,5 +1,5 @@
 // next.config.js
-const compose = require('next-compose');
+const NextComposeWithPlugins = require('next-compose-plugins');
 
 // Environment
 const isProd = process.env.NODE_ENV === 'production'
@@ -27,7 +27,7 @@ const ProjectJSON = require('./data/projects.json')
 const slugify = require('./helpers/slugify');
 
 
-const stylusConfig = {
+const StylusConfig = {
   stylusLoaderOptions: {
     use: [
       // nib(),
@@ -39,33 +39,36 @@ const stylusConfig = {
   ]},
 }
 
-module.exports = compose([
-  [withBundleAnalyzer, {}],
-  [withStylus, stylusConfig],
-  {
-    // set it up to run in a folder: 
-    assetPrefix: isProd ? '' : '',
+const NextConfig = {
+  // set it up to run in a folder: 
+  assetPrefix: isProd ? '' : '',
+  
+  exportPathMap: async function(
+    defaultPathMap,
+    { dev, dir, outDir, distDir, buildId }
+  ) {
+    var paths = defaultPathMap;
+
+    const projectData = ProjectJSON;
     
-    exportPathMap: async function(
-      defaultPathMap,
-      { dev, dir, outDir, distDir, buildId }
-    ) {
-      var paths = defaultPathMap;
+    projectData.forEach(project => {
+      paths[`/project/${slugify(project.title)}`] = { page: '/project/[title]', query: project };
+    });
 
-      const projectData = ProjectJSON;
-      
-      projectData.forEach(project => {
-        paths[`/project/${slugify(project.title)}`] = { page: '/project/[title]', query: project };
-      });
+    console.log(' defaultPathMap ', paths);
 
-      console.log(' defaultPathMap ', paths);
+    if (dev) {
+      // return paths;
+    }
+    
+    // This will copy robots.txt from your project root into the out directory
+    // await copyFile(join(dir, 'robots.txt'), join(outDir, 'robots.txt'));
+    return paths;
+  },
+};
 
-      if (dev) {
-        // return paths;
-      }
-      
-      // This will copy robots.txt from your project root into the out directory
-      // await copyFile(join(dir, 'robots.txt'), join(outDir, 'robots.txt'));
-      return paths;
-    },
-  }]);
+
+module.exports = NextComposeWithPlugins([
+  [withBundleAnalyzer, {}],
+  [withStylus, StylusConfig],
+  NextConfig]);

@@ -8,8 +8,8 @@
     "@zeit/next-stylus": "^1.0.1",
     "autoprefixer": "^9.6.1",
     "http-server": "^0.11.1",
-    "isomorphic-unfetch": "^3.0.0",
     "next": "^8.1.0",
+    "next-compose-plugins": "^2.2.0",
     "next-page-transitions": "^1.0.0-beta.2",
     "postcss-css-variables": "^0.12.0",
     "poststylus": "^1.0.0",
@@ -20,7 +20,7 @@
     "stylus": "^0.54.5"
   },
   "devDependencies": {
-    "next-compose": "0.0.2"
+    
   },
   "scripts": {
     "dev": "next",
