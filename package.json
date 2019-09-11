@@ -19,9 +19,7 @@
     "rupture": "^0.7.1",
     "stylus": "^0.54.5"
   },
-  "devDependencies": {
-    
-  },
+  "devDependencies": {},
   "scripts": {
     "dev": "next",
     "build": "next build",
