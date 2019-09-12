@@ -1,0 +1,27 @@
+@import '../vars_mixins';
+
+article.homepage {
+	background: $tuscany-muted;
+	min-height: 100vh;
+	
+	padding: $space-small 0px;
+	ul {
+		li {
+			padding: $space-x-small 0px;
+			span {
+				padding: 0px $space-x-small;
+			}
+		}
+	}
+	
+	+above($breakpoint-mobile) {
+		padding: $space-large 0px;
+		ul {
+			li {
+				padding: $space-small 0px;
+			}
+		}
+	}
+	
+	
+}

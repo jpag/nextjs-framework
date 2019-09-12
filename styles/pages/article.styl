@@ -1,0 +1,12 @@
+@import '../vars_mixins';
+
+article.article-item {
+	background: $seafoam-green;
+	min-height: 100vh;
+	
+	padding: $space-small 0px;
+	
+	+above($breakpoint-mobile) {
+		padding: $space-large 0px;
+	}
+}

@@ -1,0 +1,25 @@
+@import '../vars_mixins';
+
+.error-page {
+	background-color: $primary-highlight;
+	min-height: 90vh;
+	color: $primary-white;
+	
+	section {
+		padding: $space-medium 0px;
+		+above($breakpoint-tablet) {
+			padding: $space-large 0px;
+		}
+		
+		h1, h2 {
+			display: inline-block;
+			background-color: alpha($primary-black, 0.1);
+		}
+		h3 {
+			a {
+				vertical-align: middle;
+				background-color: $blue-highlight;
+			}
+		}
+	}
+}

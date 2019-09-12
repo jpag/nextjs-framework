@@ -1,0 +1,22 @@
+@import '../vars_mixins';
+
+footer {
+	width: 100%;
+	background: $primary-black;
+	min-height: 200px;
+	padding: 100px 0px;
+	position: relative;
+	color: $primary-white;
+	z-index: $z-footer;
+
+	a {
+		color: $primary-white;
+	}
+	
+	.row {
+		padding: 0px 0px $space-large 0px;
+		&.headline {
+			padding: 0px 0px $space-x-small 0px;
+		}
+	}
+}

@@ -1,7 +1,6 @@
 import "../styles/base.styl";
 import "../styles/pages/styleguide.styl";
 
-
 function Styleguide() {
   return <article className="page-grid">
   	<div className='row'>

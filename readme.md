@@ -1,10 +1,17 @@
+## WIP
+This project is currently a work in progress boilerplate. 
+
+Current features not complete:
+- APIs are not supported for Static Export. The current fix manually scrapes the `dev` environment and saves all dynamic JSON paths as static in the exports folder. It needs to be refactored.
+
 ## Features
 - Stylus with CSS Grid
+- Using Rupture for breakpoints
 - Styleguide
-- Page Transitions
-- Lazy Load Components / Images
-- Static Export with pre-rendered content. SEO
-- Accessibility Features
+- Responsive text sizes
+- Page Transitions (on load) app.jsx toggles `loading`/`loaded` classes
+- Static Export with pre-rendered content. SEO friendly.
+- Support for static JSON (or dynamic JSON) endpoints. Can be digested and managed in `/api`
 - JSON "CMS"
 
 ## Nextjs

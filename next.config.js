@@ -21,7 +21,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 })
 
 // Defines all project paths.
-const ProjectJSON = require('./data/projects.json')
+const articlesJSON = require('./data/articles.js')
 
 // helper function
 const slugify = require('./helpers/slugify');
@@ -43,19 +43,35 @@ const NextConfig = {
   // set it up to run in a folder: 
   assetPrefix: isProd ? '' : '',
   
+  // https://github.com/zeit/next.js/issues/8119
+  exportTrailingSlash: true,
+  
   exportPathMap: async function(
     defaultPathMap,
     { dev, dir, outDir, distDir, buildId }
   ) {
     var paths = defaultPathMap;
+    let pathscount = 0;
 
-    const projectData = ProjectJSON;
-    
-    projectData.forEach(project => {
-      paths[`/project/${slugify(project.title)}`] = { page: '/project/[title]', query: project };
+    articlesJSON.forEach(article => {
+      // use the title attribute slugged, and assign it `slug` when it is passed to the page. 
+      // otherwise it will override the `title` value.
+      const slugTitle = slugify(article.title)
+      article.slug = slugTitle
+
+      paths[`/articles/${slugTitle}`] = { page: '/articles/[slug]', query: article };
+      pathscount++
+
+      // APIs not supported in static export.
+      // paths[`/api/articles/${slugTitle}`] = { page: '/api/articles/[slug]', query: article};
+      // pathscount++
+
     });
 
-    console.log(' defaultPathMap ', paths);
+    console.log(" - number of paths created -", pathscount);
+    const keys = Object.keys(paths)
+    console.log(keys)
+
 
     if (dev) {
       // return paths;
