@@ -15,7 +15,7 @@ class HomePage extends React.Component {
 	   
 	    // query title and contents are not defined in SPA (via. <Link><a></a></Link)
 	    const origin = (process.browser) ? window.location.origin : 'http://localhost:3000'
-	    const urlRequest = `${origin}/api/articles`
+	    const urlRequest = `${origin}/api/articleslist`
 	    const res = await fetch(urlRequest)
 	    const json = await res.json()
 	    

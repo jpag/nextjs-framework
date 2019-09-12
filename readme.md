@@ -1,8 +1,8 @@
 ## WIP
-This project is currently a work in progress boilerplate. 
+This project is currently a work in progress boilerplate. More documentation to follow.
 
-Current features not complete:
-- APIs are not supported for Static Export. The current fix manually scrapes the `dev` environment and saves all dynamic JSON paths as static in the exports folder. It needs to be refactored.
+## Intent
+A boilerplate setup to hopefully get a site up and running simply with the end result being a static frontend. All data is accessed via /api/ the API responses currently use JSON stored in data/*.js files. But the API responses could in theory handle 3rd party requests, parse and output static snapshots of data during a new build/deployment.
 
 ## Features
 - Stylus with CSS Grid
@@ -13,6 +13,8 @@ Current features not complete:
 - Static Export with pre-rendered content. SEO friendly.
 - Support for static JSON (or dynamic JSON) endpoints. Can be digested and managed in `/api`
 - JSON "CMS"
+- APIs are not supported for Static Export. The current fix manually scrapes the `dev` environment and saves all dynamic JSON paths as static in the exports folder. It needs to be refactored.
+
 
 ## Nextjs
 This is using NextJS. To get running

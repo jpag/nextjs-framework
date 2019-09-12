@@ -131,6 +131,9 @@ async function loopThroughAPIEndpoints() {
     countAPI++
   }));
 
+  await queryAPI('articleslist', '/api/')
+  countAPI++
+  
   console.log(chalk.yellow('Number of APIs requested '), countAPI)
 }
 
