@@ -30,7 +30,6 @@ function buildExportAndCapture() {
   child.stdout.on('data', async (data) => {
       
       // process.stdout.write(data);
-
       if (data.indexOf('[ ready ]') == 0 && !devServerReady) {
         
         console.log(chalk.bgGreen('Dev server booted up. Ready to Capture API Fetch requests.'));

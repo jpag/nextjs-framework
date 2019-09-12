@@ -65,7 +65,6 @@ const NextConfig = {
       // APIs not supported in static export.
       // paths[`/api/articles/${slugTitle}`] = { page: '/api/articles/[slug]', query: article};
       // pathscount++
-
     });
 
     console.log("Number of paths created: ", pathscount);

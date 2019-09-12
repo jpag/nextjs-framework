@@ -3,8 +3,12 @@
 article.homepage {
 	background: $tuscany-muted;
 	min-height: 100vh;
-	
 	padding: $space-small 0px;
+	
+	.row {
+		padding: $space-small 0px;	
+	}
+
 	ul {
 		li {
 			padding: $space-x-small 0px;
@@ -16,6 +20,10 @@ article.homepage {
 	
 	+above($breakpoint-mobile) {
 		padding: $space-large 0px;
+		.row {
+			padding: $space-medium 0px;	
+		}
+		
 		ul {
 			li {
 				padding: $space-small 0px;
