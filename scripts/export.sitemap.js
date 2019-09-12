@@ -1,11 +1,8 @@
 const fs = require("fs");
-const siteURL = 'https://www.example.com';
-const CONFIG = require('./postexport.config.js');
+const CONFIG = require('./export.config.js');
 
 function getPathsObject() {
-  const fileObj = {
-
-  };
+  const fileObj = { };
 
   const walkSync = dir => {
     // Get all files of the current directory & iterate over them
@@ -40,8 +37,8 @@ function getPathsObject() {
           // }
           
           // console.log(dir, '----',cleanFileName)
-          fileObj[`${siteURL}${cleanFileName}`] = {
-	          page: `${siteURL}${cleanFileName}`,
+          fileObj[`${CONFIG.siteURL}${cleanFileName}`] = {
+	          page: `${CONFIG.siteURL}${cleanFileName}`,
 	          lastModified: fileStat.mtime
 	        };
         

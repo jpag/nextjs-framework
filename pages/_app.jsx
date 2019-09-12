@@ -12,13 +12,13 @@ const DefaultJSON = require('../data/defaults.js')
 
 class CustomApp extends App {
 
-  static async getInitialProps({ Component, ctx }) {
-    let pageProps = {}
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx)
-    }
-    return { pageProps }
-  }
+  // static async getInitialProps({ Component, ctx }) {
+  //   let pageProps = {}
+  //   if (Component.getInitialProps) {
+  //     pageProps = await Component.getInitialProps(ctx)
+  //   }
+  //   return { pageProps }
+  // }
   
   constructor(props) {
     super(props);

@@ -7,6 +7,7 @@
     "@next/bundle-analyzer": "^9.0.3",
     "@zeit/next-stylus": "^1.0.1",
     "autoprefixer": "^9.6.1",
+    "chalk": "^2.4.2",
     "fs-extra": "^8.1.0",
     "http-server": "^0.11.1",
     "isomorphic-unfetch": "^3.0.0",
@@ -19,6 +20,7 @@
     "react-dom": "^16.9.0",
     "react-ga": "^2.6.0",
     "react-visibility-sensor": "^5.1.1",
+    "rimraf": "^3.0.0",
     "rupture": "^0.7.1",
     "stylus": "^0.54.5"
   },
@@ -26,14 +28,16 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "export": "npm run dev -- -p 3000 & npm run build && next export -o static-export && npm run postexport",
+    "export": "npm run export:build && npm run export:sitemap && npm run export:cleanup",
+    "export:build": "node scripts/export.build.js",
+    "export:sitemap": "node scripts/export.sitemap.js",
+    "export:cleanup": "node scripts/export.cleanup.js",
     "killport": "npx kill-port --port 3000",
     "start": "next start",
     "test-export": "http-server ./static-export",
     "analyze": "ANALYZE=true next build",
     "analyze:server": "BUNDLE_ANALYZE=server next build",
-    "analyze:browser": "BUNDLE_ANALYZE=browser next build",
-    "postexport": "node scripts/postexport.sitemap.js && node scripts/postexport.api.js"
+    "analyze:browser": "BUNDLE_ANALYZE=browser next build"
   },
   "author": "JpGary",
   "license": "MIT"

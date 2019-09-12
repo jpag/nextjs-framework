@@ -68,7 +68,7 @@ const NextConfig = {
 
     });
 
-    console.log(" - number of paths created -", pathscount);
+    console.log("Number of paths created: ", pathscount);
     const keys = Object.keys(paths)
     console.log(keys)
 
