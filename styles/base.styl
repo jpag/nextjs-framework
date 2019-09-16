@@ -1,32 +1,32 @@
-@import './vars_mixins';
+:global {
 
-@import './base/colors';
-@import './base/fonts';
-@import './base/grid';
+	@import './vars_mixins';
+	@import './base/fonts';
+	@import './base/grid';
 
-body, * {
-	box-sizing: border-box;
-	margin: 0px;
-	padding: 0px;
-	border: 0px;
-}
-
-ul, ul li {
-	list-style: none;
-}
-
-
-
-.app-wrapper {
-	transition: opacity $defaultTime $easeInOutQuint; 
-
-	&.loading {
-		opacity: 0
-		transition-timing-function: $easeOutQuint;
+	body, * {
+		box-sizing: border-box;
+		margin: 0px;
+		padding: 0px;
+		border: 0px;
 	}
 
-	&.loaded  {
- 		opacity: 1;
- 		transition-timing-function: $easeInQuint;
- 	}
- }
+	ul, ul li {
+		list-style: none;
+	}
+
+	.appwrapper {
+		transition: opacity $defaultTime $easeInOutQuint; 
+		// opacity: 0;
+		
+		&.loading {
+			opacity: 0
+			transition-timing-function: $easeOutQuint;
+		}
+
+		&.loaded  {
+	 		opacity: 1;
+	 		transition-timing-function: $easeInQuint;
+	 	}
+	}	 
+}

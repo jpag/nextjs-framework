@@ -1,8 +1,9 @@
-import "../styles/base.styl";
-import "../styles/pages/styleguide.styl";
+// import "../styles/base.styl";
+import styles from "../styles/pages/styleguide.styl";
 
 function Styleguide() {
-  return <article className="page-grid">
+
+  return <article className={styles.grid}>
   	<div className='row'>
 		<div className="col len-12">
 			<h1 className='page-title'>
@@ -25,7 +26,7 @@ function Styleguide() {
 		</div>
 	</div>
 
-	<div className='row demo'>
+	<div className="row demo">
 		<div className="col len-1"></div>
 		<div className="col len-1"></div>
 		<div className="col len-1"></div>

@@ -28,10 +28,11 @@ const slugify = require('./helpers/slugify');
 
 
 const StylusConfig = {
+  cssModules: true,
   stylusLoaderOptions: {
     use: [
-      // nib(),
-      rupture(),
+      // nib(), // Stylus mixins, utilities, components, and gradient image generation
+      rupture(), // Simple media queries for stylus.
       poststylus([
         autoprefixer({}),
         require('postcss-css-variables'),
@@ -69,9 +70,7 @@ const NextConfig = {
 
     console.log("Number of paths created: ", pathscount);
     const keys = Object.keys(paths)
-    console.log(keys)
-
-
+    
     if (dev) {
       // return paths;
     }

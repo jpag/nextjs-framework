@@ -3,7 +3,8 @@ import React from 'react'
 import Head from "next/head";
 import Link from 'next/link'
 
-import "../styles/pages/index.styl";
+import styles from "../styles/pages/index.styl";
+
 
 class HomePage extends React.Component {
 	constructor(props) {
@@ -18,7 +19,6 @@ class HomePage extends React.Component {
 	    const urlRequest = `${origin}/api/articleslist`
 	    const res = await fetch(urlRequest)
 	    const json = await res.json()
-	    
 	    return { data: json }
 	}
 
@@ -29,9 +29,8 @@ class HomePage extends React.Component {
 		const { data } = this.props;
 
 		return (
-			<article className="homepage">
-				<Head>
-		        </Head>
+			<article className={styles.homepage}>
+				<Head></Head>
 		        <div className="row">
 		          	<div className="col len-8 offset-1">
 			            <h2>Home page</h2>
@@ -62,15 +61,6 @@ class HomePage extends React.Component {
 						        	</Link>
 						        </li>
 						    })}
-			            	{/*<li>
-			            		<Link 
-			            			href={`/${path}/[slug]?slug=${slug}`}
-									as={`/${path}/${slug}`}
-								>
-			            			<a>'Dynamic' Project Item</a>
-			            		</Link>
-			            		 <span>from api/ using static json listx</span>
-			            	</li>*/}
 			            </ul>
 		          	</div>
 		        </div>

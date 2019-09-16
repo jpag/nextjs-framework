@@ -1,5 +1,5 @@
 /*
- * We take the `npm run build && next export -o static-export`
+ * We take the `npm run build && next export -o [exportfolder]`
  * and place it into this script so every page can fetch() the APIs for content when rendering. 
  * using the `dev` server during build.
  * 
@@ -70,13 +70,10 @@ function buildExportAndCapture() {
       process.stdout.write(data);
   });
 
-  // child.on('exit', (data) => {
-    // process.stdout.write('All done!');
-  // });
 }
 
 async function nextBuild() {
-  // run the npm next scripts.
+  // run the npm next build.
   return new Promise((resolve, reject) => {
     const childBuild = spawn('./node_modules/.bin/next', [
       'build',
@@ -103,7 +100,7 @@ async function nextExport() {
     const childExport = spawn('./node_modules/.bin/next', [
       'export',
       '-o',
-      'static-export',
+      CONFIG.exportFolder,
     ]);
     childExport.stdout.on('data', (data) => {
       process.stdout.write(chalk.inverse(data))
@@ -120,24 +117,29 @@ async function nextExport() {
  
 }
 
+// Add or Remove api endpoints here.
+// TODO make this more user friendly. (Perhaps ingest an object or Array in CONFIG.)
 async function loopThroughAPIEndpoints() {
-  // add or remove api endpoints here.
+  // The script does not know what all the endpoints are.
+  // When modifying you will need to reconsider how to retrieve all the endpoints needed.
+  // For this script to query and retrieve the data response.
+
   await Promise.all(articlesJSON.map(async (article) => {
     // use the title attribute slugged, and assign it `slug` when it is passed to the page. 
     // otherwise it will override the `title` value.
     const slugTitle = slugify(article.title)
     article.slug = slugTitle
-    await queryAPI(slugTitle, '/api/articles/')
+    await queryAPIEndpoint(slugTitle, '/api/articles/')
     countAPI++
   }));
 
-  await queryAPI('articleslist', '/api/')
+  await queryAPIEndpoint('articleslist', '/api/')
   countAPI++
-  
+
   console.log(chalk.yellow('Number of APIs requested '), countAPI)
 }
 
-async function queryAPI(slug, apiPath) {
+async function queryAPIEndpoint(slug, apiPath) {
     const origin = 'http://localhost:'+CONFIG.devServerPort
     const urlRequest = `${origin}${apiPath}${slug}`
 

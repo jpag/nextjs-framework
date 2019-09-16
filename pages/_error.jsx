@@ -1,6 +1,6 @@
 import React from 'react'
 
-import "../styles/pages/error.styl";
+import styles from "../styles/pages/error.styl";
 
 
 class Error extends React.Component {
@@ -11,7 +11,7 @@ class Error extends React.Component {
 
   render() {
     return (
-      <main className="error-page">
+      <main className={styles.error}>
         <section>
           <div className="row">
             <div className="col len-10">

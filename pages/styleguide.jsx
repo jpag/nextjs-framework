@@ -1,40 +1,60 @@
-import "../styles/base.styl";
-import "../styles/pages/styleguide.styl";
+// import "../styles/base.styl";
+import styles from "../styles/pages/styleguide.styl";
 
 function loopThroughColors() {
 	var colors = [];
 
 	var colorList = [
 		{
-			color: 'color-primary-black',
+			color: 'black',
 			col: 2
 		},
 		{
-			color: 'color-primary-gray',
+			color: 'gray',
 			col: 2
 		},
 		{
-			color: 'color-primary-white',
+			color: 'white',
 			col: 2
 		},
-		// {
-		// 	color: 'color-secondary-blue',
-		// 	col: 1
-		// },
+		{
+			color: 'primary-highlight',
+			col: 1
+		},
+		{
+			color: 'secondary-highlight',
+			col: 1
+		},
+		{
+			color: 'seafoam-green',
+			col: 1
+		},
+		{
+			color: 'tuscany-muted',
+			col: 1
+		},
+		{
+			color: 'lavendar-muted',
+			col: 1
+		},
+		{
+			color: 'thistle-muted',
+			col: 1
+		},
 	]
 
 	for (let c = 0; c < colorList.length; c++) {
 
-		colors.push(<div key={c} className={`col len-${colorList[c].col} colorBlock ${colorList[c].color}`}></div>)
+		colors.push(<div key={c} className={`col len-${colorList[c].col} colorBlock color-${colorList[c].color}`}></div>)
 	}
 
 	return colors
 }
 
 function Styleguide() {
-  return <article className="page-styleguide">
+  return <article className={styles.styleguide} >
 		<div className='row'>
-			<div className="col len-6">
+			<div className="col len-6 offset-1">
 
 				<h1 className='page-title'>
 					Styleguide  
@@ -46,7 +66,7 @@ function Styleguide() {
 		</div>
 
 		<div className='row'>
-			<div className="col len-8">
+			<div className="col len-8 offset-1">
 				<h3>Colors</h3>
 			</div>
 		</div>
@@ -56,8 +76,7 @@ function Styleguide() {
 		</div>
 
 		<div className='row'>
-			<div className="col len-8">
-				
+			<div className="col len-10 offset-1">
 				<h1>This is a Dark Headline 1</h1>
 				<h2>This is a Dark Headline 2</h2>
 				<h3>This is a Dark Headline 3</h3>

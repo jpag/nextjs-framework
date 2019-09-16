@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 
-import "../styles/components/nav.styl";
+import styles from "../styles/components/nav.styl";
 
 class Navigation extends React.Component {
 	constructor(props) {
@@ -13,7 +13,7 @@ class Navigation extends React.Component {
 
 	render() { 
 		return (
-			<nav className="primary">
+			<nav className={styles.primary}>
 				<div className="home-icon">						
 					<Link href="/">
 						<a> </a>	

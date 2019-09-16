@@ -1,6 +1,6 @@
 // APIs not supported in nextjs static export
 // so we manually grab them while the dev instance is running 
-// and save the output in the static-export folder.
+// and save the output in the export folder.
     
 const path = require('path');
 const fs = require("fs-extra");
@@ -26,4 +26,3 @@ function removeUnnecessaryFilesFolders() {
 }
 
 removeUnnecessaryFilesFolders();
-// killPorts();

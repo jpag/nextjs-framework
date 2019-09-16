@@ -1,7 +1,7 @@
 import React from 'react'
 // import Link from 'next/link'
 
-import "../styles/components/footer.styl";
+import styles from "../styles/components/footer.styl";
 
 class Footer extends React.Component {
 	constructor(props) {
@@ -13,7 +13,7 @@ class Footer extends React.Component {
 
 	render() { 
 		return (
-			<footer>
+			<footer className={styles.footer} >
 				<div className="row headline">
 					<div className="col len-10 offset-1">
 						<h4>Footer</h4>

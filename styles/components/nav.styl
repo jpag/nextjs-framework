@@ -1,6 +1,6 @@
 @import '../vars_mixins';
 
-nav.primary {
+.primary :global{
 	z-index: $z-navigation;
 	
 	height: $gap-horizontal-mobile;
@@ -17,7 +17,7 @@ nav.primary {
 		top: 0px;
 		display: flex;
 		text-align: center;
-		background: alpha($primary-black, 0.35);
+		background: alpha($colors.black, 0.35);
 		align-items: center;
   		justify-content: center;
   		
@@ -28,7 +28,7 @@ nav.primary {
 			height: 100%;
 			background: none;
 			display: inline-block;
-			color: $primary-white;
+			color: $colors.white;
 			
 		}
 	}	

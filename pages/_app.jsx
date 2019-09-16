@@ -3,7 +3,9 @@ import Router from "next/router"
 import App from 'next/app';
 import Head from "next/head";
 
+// GLOBAL styles. In this instance we do not assign a classname to a css module here.
 import "../styles/base.styl";
+
 import Navigation from "../components/navigation";
 import Footer from "../components/footer";
 
@@ -81,7 +83,7 @@ class CustomApp extends App {
     const { loading, hidemode } = this.state;
     
     return (
-      <div className={`app-wrapper ${ (loading)?`loading`:`loaded`} ${ (hidemode)? `hide-mode`:``} `} >
+      <div className={`appwrapper ${ (loading)?`loading`:`loaded`} ${ (hidemode)? `hide-mode`:``} `} >
         <Head>
           <title>{DefaultJSON.title}</title>
           <meta name="description" content={DefaultJSON.meta.description} />

@@ -3,48 +3,52 @@
 // https://medium.com/codyhouse/create-your-design-system-part-2-grid-layout-aa961d59b8d6
 // 
 
-gridbase() {
-    @supports(grid-area: auto) {
-        display: grid;
-        // min row height.
-        grid-auto-rows: auto;
-        grid-row-gap: $gap-vertical;
-        grid-column-gap: $gap-horizontal-mobile;
-        
-        +above($breakpoint-mobile) {
-            grid-column-gap: $gap-horizontal-tablet;  
-        }
-        
-        +above($breakpoint-tablet) {
-            grid-column-gap: $gap-horizontal-desktop;
+gridbase(breakpoint-mobile, breakpoint-tablet) {
+    display: grid;
+    // min row height.
+    grid-auto-rows: auto;
+    grid-row-gap: $gap-vertical;
+    grid-column-gap: $gap-horizontal-mobile;
+    
+    +above(breakpoint-mobile) {
+        grid-column-gap: $gap-horizontal-tablet;  
+    }
+    
+    +above(breakpoint-tablet) {
+        grid-column-gap: $gap-horizontal-desktop;
+    }
+    
+}
+
+gridAuto($min-width) {
+    grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
+    
+}
+
+gridLayout(grid-columns, cols, row) {
+    grid-template-columns: repeat(grid-columns, 1fr);
+    .col {
+        i = 1
+        for col in cols {
+            &.len-{i} {
+                grid-column-end: span col;
+                grid-row-end: span row;
+            }
+            i = i + 1
         }
     }
 }
 
-gridAuto($min-width) {
-      @supports(grid-area: auto) {
-        grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
-      }
-}
-
-gridLayout(grid-columns, cols, row) {
-    @supports(grid-area: auto) {
-        grid-template-columns: repeat(grid-columns, 1fr);
-        .col {
-            i = 1
-            for col in cols {
-                &.len-{i} {
-                    grid-column-end: span col;
-                    grid-row-end: span row;
-                }
-                &.offset-{i} {
-                    // no offsets on mobile.
-                    +above($breakpoint-mobile) {
-                        grid-column-start: i + 1;
-                    }
-                }
-                i = i + 1
+// set only on above breakpoint mobile.
+gridOffsets(grid-columns, cols, row) {
+    .col {
+        i = 1
+        for col in cols {
+            &.offset-{i} {
+                // no offsets on mobile.
+                grid-column-start: i + 1;
             }
+            i = i + 1
         }
     }
 }

@@ -1,10 +1,27 @@
-$primary-black = #000;
-$primary-gray = #ddd;
-$primary-white = #FFF;
+// $primary-black = #000;
+// $primary-gray = #ddd;
+// $primary-white = #FFF;
 
-$primary-highlight = #fc0066;
+// $primary-highlight = #fc0066;
+// $secondary-highlight = #774cff;
+// $seafoam-green = #aacabe;
+// $tuscany-muted = #BE92A2;
+// $lavendar-muted = #D8E1FF;
+// $thistle-muted = #DBBADD;
 
-$seafoam-green = #aacabe;
-$tuscany-muted = #BE92A2;
-$lavendar-muted = #D8E1FF;
-$thistle-muted = #DBBADD;
+$colors = {
+	black: #000,
+	gray: #ddd,
+	white: #fff,
+	primary-highlight: #fc0066,
+	secondary-highlight: #774cff,
+	seafoam-green: #aacabe,
+	tuscany-muted: #BE92A2,
+	lavendar-muted: #D8E1FF,
+	thistle-muted: #DBBADD,
+}
+
+for color in $colors
+	.color-{color} {
+		background-color: $colors[color];
+	}

@@ -3,7 +3,7 @@ import Head from "next/head";
 import {Router, withRouter } from 'next/router'
 import React from 'react'
 
-import "../../styles/pages/article.styl";
+import styles from "../../styles/pages/article.styl";
 
 const slugify = require('../../helpers/slugify');
 
@@ -39,7 +39,7 @@ class ArticlePage extends React.Component {
     const {data} = this.props
     
     return (
-      <article className="article-item">
+      <article className={styles.article}>
         <Head>
           <title>{data.title}</title>
           <meta name="description" content={data.description} />
