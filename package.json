@@ -12,7 +12,7 @@
     "http-server": "^0.11.1",
     "isomorphic-unfetch": "^3.0.0",
     "kill-port": "^1.5.1",
-    "next": "^9.0.5",
+    "next": "^9.3.2",
     "next-compose-plugins": "^2.2.0",
     "postcss-css-variables": "^0.12.0",
     "poststylus": "^1.0.0",
